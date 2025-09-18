@@ -1,0 +1,27 @@
+module: satosa.backends.openid_connect.OpenIDConnectBackend
+name: cilogon
+config:
+  provider_metadata:
+    issuer: https://cilogon.org
+
+  # RP/Cliente 
+  client:
+    verify_ssl: true
+    auth_req_params:
+      response_type: code
+      scope: [openid, email, profile, org.cilogon.userinfo]
+
+    client_metadata:
+      client_id: "<id>"
+      client_secret: "<secret>"
+
+      redirect_uris:
+        - "https://<fqdn-sp/>/cilogon"
+      token_endpoint_auth_method: client_secret_basic
+      application_type: web
+      response_types: ["code"]
+
+    dynamic_registration: false
+
+  # Opcional: mapeamento de atributos 
+  # attribute_map_dir: /etc/satosa/attributemaps
