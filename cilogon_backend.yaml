@@ -4,7 +4,7 @@ config:
   provider_metadata:
     issuer: https://cilogon.org
 
-  # RP/Cliente 
+  # RP/Client
   client:
     verify_ssl: true
     auth_req_params:
@@ -16,12 +16,12 @@ config:
       client_secret: "<secret>"
 
       redirect_uris:
-        - "https://<fqdn-sp/>/cilogon"
+        - "https://<sp-fqdn/>/cilogon"
       token_endpoint_auth_method: client_secret_basic
       application_type: web
       response_types: ["code"]
 
     dynamic_registration: false
 
-  # Opcional: mapeamento de atributos 
+  # Optional: attribute mapping
   # attribute_map_dir: /etc/satosa/attributemaps
